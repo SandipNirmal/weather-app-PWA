@@ -1,0 +1,62 @@
+/**
+ * Service worker for waether app
+ * @author Sandip Nirmal
+ * 27 Dec 2016
+ */
+
+/**
+ * Service Worker install event
+ * Service worker lifecycle event triggered at when app loads (Service Worker)
+ * loads
+ */
+this.addEventListener('install', function(event) {
+    event.waitUntil(
+        caches.open('app-v0.0.1')
+        .then(function(cache) {
+            return cache.addAll([
+                './index.html',
+                './css/style.css',
+                './../w-icons/'
+            ]);
+        })
+    );
+});
+
+/**
+ * Fetch event
+ *
+ * Event triggered whenever a network request is made. You can decide wether you
+ * want to serve content from cache or fetch network
+ */
+this.addEventListener('fetch', function(event) {
+    event.respondWith(
+        caches.match(event.request)
+        .then(function(response) {
+            return response || fetch(event.request);
+        })
+    );
+});
+
+
+/**
+ * Service Worker activate event
+ *
+ * Activate event is triggered after installation, generally this should be used
+ * for cleaning up of memory if we have previously installed app.
+ *
+ * Here we are deleting previous caches once new version is installed and
+ * activated
+ */
+ // this.addEventListener('activate', function(event) {
+ //   var currentVersion = ['app-v0.0.2'];
+ //
+ //   event.waitUntil(
+ //     caches.keys().then(function(keyList) {
+ //       return Promise.all(keyList.map(function(key) {
+ //         if (cacheWhitelist.indexOf(key) === -1) {
+ //           return caches.delete(key);
+ //         }
+ //       }));
+ //     })
+ //   );
+ // });
