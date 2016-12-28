@@ -5,7 +5,7 @@
  */
 
 // App version
-const version = 'app-v0.0.2';
+const version = 'app-v0.0.3';
 
 /**
  * Service Worker install event
