@@ -4,6 +4,9 @@
  * 27 Dec 2016
  */
 
+// App version
+const version = 'app-v0.0.2';
+
 /**
  * Service Worker install event
  * Service worker lifecycle event triggered at when app loads (Service Worker)
@@ -11,12 +14,18 @@
  */
 this.addEventListener('install', function(event) {
     event.waitUntil(
-        caches.open('app-v0.0.1')
+        caches.open(version)
         .then(function(cache) {
             return cache.addAll([
                 './index.html',
                 './css/style.css',
-                './../w-icons/'
+                './../w-icons/30.png',
+                './../w-icons/11.png',
+                './../w-icons/13.png',
+                './../w-icons/14.png',
+                './../w-icons/16.png',
+                './../w-icons/23.png',
+                './../assets/weather-app.png'
             ]);
         })
     );
@@ -47,16 +56,14 @@ this.addEventListener('fetch', function(event) {
  * Here we are deleting previous caches once new version is installed and
  * activated
  */
- // this.addEventListener('activate', function(event) {
- //   var currentVersion = ['app-v0.0.2'];
- //
- //   event.waitUntil(
- //     caches.keys().then(function(keyList) {
- //       return Promise.all(keyList.map(function(key) {
- //         if (cacheWhitelist.indexOf(key) === -1) {
- //           return caches.delete(key);
- //         }
- //       }));
- //     })
- //   );
- // });
+ this.addEventListener('activate', function(event) {
+   event.waitUntil(
+     caches.keys().then(function(keyList) {
+       return Promise.all(keyList.map(function(key) {
+         if (key !== version) {
+           return caches.delete(key);
+         }
+       }));
+     })
+   );
+ });
