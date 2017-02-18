@@ -18,8 +18,8 @@ html {
     /*background: #6c00f6;*/
     /*background-image: -moz-linear-gradient(48deg, #6c00f6 15%, #6c00f6 85%);
     background-image: -webkit-linear-gradient(48deg, #6c00f6 15%, #6c00f6 85%);
-    background-image: linear-gradient(48deg, #6c00f6 15%, #6c00f6 85%);
-    background-attachment:fixed;*/
+    background-image: linear-gradient(48deg, #6c00f6 15%, #6c00f6 85%);*/
+    /*background-attachment:fixed;*/
     background: url('/../assets/weather-app.png') no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -41,7 +41,6 @@ body {
 }
 
 header, main, footer {
-    display: flex;
     display: flex;
     width: 100vw;
 }
@@ -106,7 +105,7 @@ header div.city-info {
 }
 
 .weather-info {
-    padding-left: 1em;
+    padding-left: 2em;
 }
 
 .weather-info .w-cond .cond {

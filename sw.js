@@ -10,12 +10,13 @@ const version = 'app-v0.0.3';
 /**
  * Service Worker install event
  * Service worker lifecycle event triggered at when app loads (Service Worker)
- * loads
+ * loads. On service worker installation take application offline by saving
+ * website in cache.
  */
-this.addEventListener('install', function(event) {
+this.addEventListener('install', event => {
     event.waitUntil(
         caches.open(version)
-        .then(function(cache) {
+        .then(cache => {
             return cache.addAll([
                 './index.html',
                 './web_app/css/style.css',
@@ -37,10 +38,10 @@ this.addEventListener('install', function(event) {
  * Event triggered whenever a network request is made. You can decide wether you
  * want to serve content from cache or fetch network
  */
-this.addEventListener('fetch', function(event) {
+this.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)
-        .then(function(response) {
+        .then(response => {
             return response || fetch(event.request);
         })
     );
@@ -52,21 +53,21 @@ this.addEventListener('fetch', function(event) {
  *
  * Handles service worker push notification event
  */
- this.addEventListener('push', function(event) {
- console.log('Received a push message', event);
+this.addEventListener('push', event => {
+    console.log('Received a push message', event);
 
- var title = 'Yay a message.';
- var body = 'We have received a push message.';
- var icon = '/images/icon-192x192.png';
- var tag = 'simple-push-demo-notification-tag';
+    const title = 'Yay a message.';
+    const body = 'We have received a push message.';
+    const icon = '/images/icon-192x192.png';
+    const tag = 'simple-push-demo-notification-tag';
 
- event.waitUntil(
-   self.registration.showNotification(title, {
-     body: body,
-     icon: icon,
-     tag: tag
-   })
- );
+    event.waitUntil(
+        self.registration.showNotification(title, {
+            body: body,
+            icon: icon,
+            tag: tag
+        })
+    );
 });
 
 
@@ -79,14 +80,14 @@ this.addEventListener('fetch', function(event) {
  * Here we are deleting previous caches once new version is installed and
  * activated
  */
- this.addEventListener('activate', function(event) {
-   event.waitUntil(
-     caches.keys().then(function(keyList) {
-       return Promise.all(keyList.map(function(key) {
-         if (key !== version) {
-           return caches.delete(key);
-         }
-       }));
-     })
-   );
- });
+this.addEventListener('activate', event => {
+    event.waitUntil(
+        caches.keys().then(keyList => {
+            return Promise.all(keyList.map(key => {
+                if (key !== version) {
+                    return caches.delete(key);
+                }
+            }));
+        })
+    );
+});

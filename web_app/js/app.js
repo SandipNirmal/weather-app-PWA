@@ -12,16 +12,16 @@
         daysOfWeek: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
         refreshBtn: document.getElementById('btnRefresh'),
         lastKnownLocation: {},
-        currentLocation: {}
+        currentLocation: {},
+        woeid: 2295412, // woeid for Pune
+        yahooWeatherApi: `https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%3D2295412&format=json&diagnostics=true&callback=`
     };
 
     /**
      * Add event handlers
      */
-    // window.on('scroll', handleScroll);
-
+    // window.onscroll = handleScroll;
     AppConfig.refreshBtn.addEventListener('click', getLatestWeather);
-
 
     /**
      * Handles window scroll event, apply position fixed to current weather
@@ -33,7 +33,10 @@
     /**
      * Fetch latest weather info for current locatio
      */
-    function getLatestWeather() {}
+    function getLatestWeather() {
+    	alert('Get Weather Updates!!');
+      //https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%3D2295412&format=json&diagnostics=true&callback=
+    }
 
     /**
      * Tries to fetch current user location, if found returns current location
