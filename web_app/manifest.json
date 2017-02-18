@@ -1,6 +1,7 @@
 {
   "name": "Weather App",
   "background_color": "#818181",
+  "theme": "#818181",
   "description": "A simple installable weather web app.",
   "icons": [
     {

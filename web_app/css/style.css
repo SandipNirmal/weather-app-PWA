@@ -1,13 +1,18 @@
 /**
  * Style.css
- * @auhor Sandip Nirmal
+ * @author Sandip Nirmal
  * 20 Dec 2016
  */
 
-* {
-    margin: 0;
-    padding: 0;
-}
+ * {
+     margin: 0;
+     padding: 0;
+ }
+
+ a {
+     text-decoration: none;
+     color: inherit;
+ }
 
 html {
     /*background: #6c00f6;*/
@@ -35,7 +40,43 @@ body {
     text-shadow: 1px 1px 1px rgba(0,0,0,.54);
 }
 
+header, main, footer {
+    display: flex;
+    display: flex;
+    width: 100vw;
+}
+
+header {
+  position: fixed;
+  height: 54px;
+}
+
+/** Header Style **/
+
+header div {
+    flex-basis: 40px;
+    text-align: center;
+    margin: auto;
+}
+
+header .menu, header .refresh {
+    font-size: 1.3em;
+}
+
+/*header .refresh {
+    -ms-transform: rotate(90deg);
+    /* IE 9
+    -webkit-transform: rotate(90deg);
+    /* Safari
+    transform: rotate(90deg);
+}*/
+
+header div.city-info {
+    flex-grow: 1;
+}
+
 .weather-app {
+  width: 100vw;
     /*display: flex;*/
 }
 
@@ -46,6 +87,7 @@ body {
     padding: 0.5em 0;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
 }
 
 .city-info {
