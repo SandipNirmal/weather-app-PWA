@@ -17,167 +17,166 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- App Manifest -->
-    <link rel="manifest" href="manifest.json">
+    <!-- <link rel="manifest" href="manifest.json"> -->
 </head>
+
 <body>
 
-  <header class="header">
-    <div class="menu">
-        <a href="#" class="icon-menu">
+    <header class="header">
+        <div class="menu">
+            <a href="#" class="icon-menu">
         &#9776;
       </a>
-    </div>
-
-    <div class="city-info">
-        <div class="place">Pune</div>
-        <div class="time">11:40AM IST</div>
-    </div>
-
-    <div id="btnRefresh" class="refresh">
-        <a href="#" class="icon-refresh">
-        &#x21bb;
-      </a>
-    </div>
-  </header>
-
-  <main>
-    <div class="weather-app">
-        <div class="basic-info">
-            <div id="currentWeather" class="weather-info">
-                <div class="w-cond">
-                    <img class="cond" src="./../w-icons/30.png">
-                    <span> Partly Cloudy </span>
-                </div>
-                <div class="temp">
-                    <!-- TODO svg arrow with top horizontal line -->
-                    <div class="temp-max" id="temp-max">
-                        <svg width="20" height="20" viewBox="0 0 48 48" data-icon="arrow-up" style="fill: rgb(255, 255, 255); stroke: rgb(255, 255, 255); stroke-width: 0; vertical-align: bottom;">
-                      <path d="M13.764 18.75c-.792.772-.808 2.037-.04 2.828.772.792 2.038.81 2.83.04l5.678-5.526v23.59h4v-23.59l5.68 5.525c.79.77 2.058.753 2.827-.04.377-.388.565-.89.565-1.394 0-.52-.202-1.042-.605-1.434L24.23 8.566 13.763 18.75z"></path>
-                    </svg>
-                        <span>31</span>
-                        <span>&#xb0;</span>
-                    </div>
-
-                    <div class="temp-min" id="temp-min">
-                        <svg width="20" height="20" viewBox="0 0 48 48" data-icon="arrow-down" style="fill: rgb(255, 255, 255); stroke: rgb(255, 255, 255); stroke-width: 0; vertical-align: bottom;">
-                      <path d="M34.7 29.5c.793-.773.81-2.038.04-2.83-.77-.79-2.037-.81-2.83-.038l-5.677 5.525V8.567h-4v23.59l-5.68-5.525c-.79-.77-2.058-.753-2.827.04-.378.388-.566.89-.566 1.394 0 .52.202 1.042.605 1.434l10.472 10.183L34.7 29.5z"></path>
-                    </svg>
-                        <span>14</span>
-                        <span>&#xb0;</span>
-                    </div>
-                </div>
-                <div class="cur-temp">
-                    <span>21</span>
-                    <span>&#xb0;</span>
-                </div>
-            </div>
         </div>
 
-        <div class="detailed-info">
+        <div class="city-info">
+            <div class="place">Pune</div>
+            <div class="time">11:40AM IST</div>
+        </div>
 
-            <div id="forecast" class="card">
-                <div class="title">
-                    Forecast
+        <div id="btnRefresh" class="refresh">
+            <a href="#" class="icon-refresh">
+        &#x21bb;
+      </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="weather-app">
+            <div class="basic-info">
+                <div id="currentWeather" class="weather-info">
+                    <div class="w-cond">
+                        <img class="cond-code" src="./../w-icons/30.png">
+                        <span class="cond"> Partly Cloudy </span>
+                    </div>
+                    <div class="temp">
+                        <!-- TODO svg arrow with top horizontal line -->
+                        <div class="temp-max" id="temp-max">
+                            <svg width="20" height="20" viewBox="0 0 48 48" data-icon="arrow-up" style="fill: rgb(255, 255, 255); stroke: rgb(255, 255, 255); stroke-width: 0; vertical-align: bottom;">
+                              <path d="M13.764 18.75c-.792.772-.808 2.037-.04 2.828.772.792 2.038.81 2.83.04l5.678-5.526v23.59h4v-23.59l5.68 5.525c.79.77 2.058.753 2.827-.04.377-.388.565-.89.565-1.394 0-.52-.202-1.042-.605-1.434L24.23 8.566 13.763 18.75z"></path>
+                            </svg>
+                            <span>31&#xb0;</span>
+                        </div>
+
+                        <div class="temp-min" id="temp-min">
+                            <svg width="20" height="20" viewBox="0 0 48 48" data-icon="arrow-down" style="fill: rgb(255, 255, 255); stroke: rgb(255, 255, 255); stroke-width: 0; vertical-align: bottom;">
+                      <path d="M34.7 29.5c.793-.773.81-2.038.04-2.83-.77-.79-2.037-.81-2.83-.038l-5.677 5.525V8.567h-4v23.59l-5.68-5.525c-.79-.77-2.058-.753-2.827.04-.378.388-.566.89-.566 1.394 0 .52.202 1.042.605 1.434l10.472 10.183L34.7 29.5z"></path>
+                    </svg>
+                            <span>14&#xb0;</span>
+                        </div>
+                    </div>
+                    <div class="cur-temp">
+                        <span>21&#xb0;</span>
+                    </div>
                 </div>
-                <!-- <div id="hourly-forecast" class="hourly-forecast">
+            </div>
+
+            <div class="detailed-info">
+
+                <div id="forecast" class="card">
+                    <div class="title">
+                        Forecast
+                    </div>
+                    <!-- <div id="hourly-forecast" class="hourly-forecast">
                     Temperature
                 </div> -->
 
-                <div id="daily-forecast" class="daily-forecast">
+                    <div id="daily-forecast" class="daily-forecast">
 
-                    <!-- Day 1 -->
-                    <div class="forecast">
-                        <div class="forecast-day">
-                            Monday
-                        </div>
-                        <div class="forecast-cond">
-                            <img class="" src="./../w-icons/11.png">
-                            <!-- <span> Rain </span> -->
-                        </div>
-                        <!-- <div class="forecast-prec">
+                        <!-- Day 1 -->
+                        <div class="forecast">
+                            <div class="forecast-day">
+                                Monday
+                            </div>
+                            <div class="forecast-cond">
+                                <img class="" src="./../w-icons/11.png">
+                                <!-- <span> Rain </span> -->
+                            </div>
+                            <!-- <div class="forecast-prec">
                         Monday
                       </div> -->
-                        <div class="forecast-temp">
-                            <span class="max">21<span>&#xb0;</span></span>
-                            <span class="min">14<span>&#xb0;</span></span>
+                            <div class="forecast-temp">
+                                <span>&#xb0;</span>
+                                <span class="max">21&#xb0;</span>
+                                <span class="min">14&#xb0;</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Day 2 -->
-                    <div class="forecast">
-                        <div class="forecast-day">
-                            Tuesday
-                        </div>
-                        <div class="forecast-cond">
-                            <img class="" src="./../w-icons/14.png">
-                            <!-- <span> Rain </span> -->
-                        </div>
-                        <!-- <div class="forecast-prec">
+                        <!-- Day 2 -->
+                        <div class="forecast">
+                            <div class="forecast-day">
+                                Tuesday
+                            </div>
+                            <div class="forecast-cond">
+                                <img class="" src="./../w-icons/14.png">
+                                <!-- <span> Rain </span> -->
+                            </div>
+                            <!-- <div class="forecast-prec">
                         Monday
                       </div> -->
-                        <div class="forecast-temp">
-                            <span class="max">24<span>&#xb0;</span></span>
-                            <span class="min">18<span>&#xb0;</span></span>
+                            <div class="forecast-temp">
+                                <span class="max">24&#xb0;</span>
+                                <span class="min">18&#xb0;</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Day 3 -->
-                    <div class="forecast">
-                        <div class="forecast-day">
-                            Wednesday
-                        </div>
-                        <div class="forecast-cond">
-                            <img class="" src="./../w-icons/23.png">
-                            <!-- <span> Rain </span> -->
-                        </div>
-                        <!-- <div class="forecast-prec">
+                        <!-- Day 3 -->
+                        <div class="forecast">
+                            <div class="forecast-day">
+                                Wednesday
+                            </div>
+                            <div class="forecast-cond">
+                                <img class="" src="./../w-icons/23.png">
+                                <!-- <span> Rain </span> -->
+                            </div>
+                            <!-- <div class="forecast-prec">
                         Monday
                       </div> -->
-                        <div class="forecast-temp">
-                            <span class="max">22<span>&#xb0;</span></span>
-                            <span class="min">17<span>&#xb0;</span></span>
+                            <div class="forecast-temp">
+                                <span class="max">22&#xb0;</span>
+                                <span class="min">17&#xb0;</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Day 4 -->
-                    <div class="forecast">
-                        <div class="forecast-day">
-                            Thursday
-                        </div>
-                        <div class="forecast-cond">
-                            <img class="" src="./../w-icons/16.png">
-                            <!-- <span> Rain </span> -->
-                        </div>
-                        <!-- <div class="forecast-prec">
+                        <!-- Day 4 -->
+                        <div class="forecast">
+                            <div class="forecast-day">
+                                Thursday
+                            </div>
+                            <div class="forecast-cond">
+                                <img class="" src="./../w-icons/16.png">
+                                <!-- <span> Rain </span> -->
+                            </div>
+                            <!-- <div class="forecast-prec">
                         Monday
                       </div> -->
-                        <div class="forecast-temp">
-                            <span class="max">23<span>&#xb0;</span></span>
-                            <span class="min">17<span>&#xb0;</span></span>
+                            <div class="forecast-temp">
+                                <span class="max">23&#xb0;</span>
+                                <span class="min">17</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Day 5 -->
-                    <div class="forecast">
-                        <div class="forecast-day">
-                            Friday
-                        </div>
-                        <div class="forecast-cond">
-                            <img class="" src="./../w-icons/13.png">
-                            <!-- <span> Rain </span> -->
-                        </div>
-                        <!-- <div class="forecast-prec">
+                        <!-- Day 5 -->
+                        <div class="forecast">
+                            <div class="forecast-day">
+                                Friday
+                            </div>
+                            <div class="forecast-cond">
+                                <img class="" src="./../w-icons/13.png">
+                                <!-- <span> Rain </span> -->
+                            </div>
+                            <!-- <div class="forecast-prec">
                         Monday
                       </div> -->
-                        <div class="forecast-temp">
-                            <span class="max">27<span>&#xb0;</span></span>
-                            <span class="min">20<span>&#xb0;</span></span>
+                            <div class="forecast-temp">
+                                <span class="max">27&#xb0;</span>
+                                <span class="min">20&#xb0;</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- <div id="precipitation" class="card">
+                <!-- <div id="precipitation" class="card">
                 <div class="title">
                     Precipitation
                 </div>
@@ -190,69 +189,69 @@
                 </div>
             </div> -->
 
-            <div id="wind-pressure" class="card">
-                <div class="title">
-                    Wind &amp; Pressure
+                <div id="wind-pressure" class="card">
+                    <div class="title">
+                        Wind &amp; Pressure
+                    </div>
+
+                    <div>
+                        Wind </br>
+                        3 km/h NWN
+                    </div>
+
+                    <div>
+                        Barometer </br>
+                        1020.0 millibars
+                    </div>
                 </div>
 
-                <div>
-                    Wind </br>
-                    3 km/h NWN
+                <div id="weather-details" class="card">
+                    <div class="title">
+                        Details
+                    </div>
+                    <div>
+                        Feels like <span class="feels-like">15&#xb0;</span>
+                    </div>
+                    <div>
+                        Humidity <span class="humidity">10%</span>
+                    </div>
+                    <div>
+                        Visibility <span class="visibility">16km</span>
+                    </div>
+                    <!-- <div>
+                        UV Index <span>0(low)</span>
+                    </div> -->
                 </div>
 
-                <div>
-                    Barometer </br>
-                    1020.0 millibars
+                <div id="astro" class="card">
+                    <div class="title">
+                        Sun &amp; Moon
+                    </div>
+                    <div>
+                        <div>Sunrise : <span class="sunrise">7AM </span></div>
+                        <div>Sunset : <span class="sunrise">5:32PM </span></div>
+                    </div>
                 </div>
+
             </div>
-
-            <div id="weather-details" class="card">
-                <div class="title">
-                    Details
-                </div>
-                <div>
-                    Feels like <span>15</span><span>&#xb0;</span>
-              </div>
-              <div>
-                Humidity <span>10%</span>
-                </div>
-                <div>
-                    Visibility <span>16km</span>
-                </div>
-                <div>
-                    UV Index <span>0(low)</span>
-                </div>
-            </div>
-
-            <div id="astro" class="card">
-                <div class="title">
-                    Sun &amp; Moon
-                </div>
-                <div>
-                    Sunrise : 7AM </br>
-                    Sunset : 5:32PM
-                </div>
-            </div>
-
         </div>
-    </div>
-  </main>
+    </main>
 
 
     <!-- service worker inject -->
     <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('./sw.js')
-                    .then(function(registration) {
-                        // Registration was successful
-                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                    }).catch(function(err) {
-                        // registration failed :(
-                        console.log('ServiceWorker registration failed: ', err);
-                    });
-            });
-        }
+        // if ('serviceWorker' in navigator) {
+        //     window.addEventListener('load', () => {
+        //         navigator.serviceWorker.register('./sw.js')
+        //             .then(registration => {
+        //                 // Registration was successful
+        //                 console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        //             }).catch(err => {
+        //                 // registration failed :(
+        //                 console.log('ServiceWorker registration failed: ', err);
+        //             });
+        //     });
+        // }
     </script>
 
     <!-- script inject -->

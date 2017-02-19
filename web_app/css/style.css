@@ -100,8 +100,8 @@ header div.city-info {
 }
 
 .city-info .time {
-    font-size: 0.8em;
-    font-weight: 600;
+    font-size: 0.7em;
+    /*font-weight: 600;*/
 }
 
 .weather-info {
@@ -112,6 +112,10 @@ header div.city-info {
     width: 3em;
     height: 3em;
     vertical-align: middle;
+}
+
+img.cond-code {
+  width:100px;
 }
 
 .weather-info .w-cond span {
