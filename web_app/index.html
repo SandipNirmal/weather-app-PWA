@@ -30,8 +30,8 @@
         </div>
 
         <div class="city-info">
-            <div class="place">Pune</div>
-            <div class="time">11:40AM IST</div>
+            <div class="place"></div>
+            <div class="time"></div>
         </div>
 
         <div id="btnRefresh" class="refresh">
@@ -46,8 +46,8 @@
             <div class="basic-info">
                 <div id="currentWeather" class="weather-info">
                     <div class="w-cond">
-                        <img class="cond-code" src="">
-                        <span class="cond"> Partly Cloudy </span>
+                        <img class="cond-code">
+                        <span class="cond"></span>
                     </div>
                     <div class="temp">
                         <!-- TODO svg arrow with top horizontal line -->
@@ -65,6 +65,7 @@
 
             <div class="detailed-info">
 
+                <!-- Weather forecast -->
                 <div id="forecast" class="card">
                     <div class="title">
                         Forecast
@@ -74,7 +75,6 @@
                 </div> -->
 
                     <div id="daily-forecast" class="daily-forecast">
-
                     </div>
                 </div>
 
@@ -96,42 +96,61 @@
                         Wind &amp; Pressure
                     </div>
 
-                    <div>
-                        Wind </br>
-                        3 km/h NWN
-                    </div>
-
-                    <div>
-                        Barometer </br>
-                        1020.0 millibars
+                    <div class="wind-pressure-forecast">
+                        <div class="wind-icon">
+                        </div>
+                        <div class="details">
+                            <div class="padding-bottom-border">
+                                <span class="wind"></span>
+                            </div>
+                            <div class="padding-top">
+                                <span class="pressure"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div id="weather-details" class="card">
+                <div id="weather-details-container" class="card">
                     <div class="title">
                         Details
                     </div>
-                    <div>
-                        Feels like <span class="feels-like">15&#xb0;</span>
+
+                    <div class="weather-details">
+                        <div class="cond-icon">
+                            <img class="weather-condition-icon" />
+                        </div>
+
+                        <div class="details">
+                            <div class="padding-bottom-border">
+                                Feels like <span class="feels-like"></span>
+                            </div>
+                            <div class="padding-bottom-border padding-top">
+                                Humidity <span class="humidity"></span>
+                            </div>
+                            <div class="padding-bottom-border padding-top">
+                                Visibility <span class="visibility"></span>
+                            </div>
+                            <div class="padding-top">
+                                UV Index <span>0 (low)</span>
+                            </div>
+                        </div>
+
                     </div>
-                    <div>
-                        Humidity <span class="humidity">10%</span>
-                    </div>
-                    <div>
-                        Visibility <span class="visibility">16km</span>
-                    </div>
-                    <!-- <div>
-                        UV Index <span>0(low)</span>
-                    </div> -->
                 </div>
 
                 <div id="astro" class="card">
                     <div class="title">
                         Sun &amp; Moon
                     </div>
-                    <div>
-                        <div>Sunrise : <span class="sunrise">7AM </span></div>
-                        <div>Sunset : <span class="sunrise">5:32PM </span></div>
+
+                    <div class="astro-details">
+                        <div class="sun-pos">
+                        </div>
+
+                        <div class="details">
+                            <div class="padding-bottom-border">Sunrise : <span class="sunrise"></span></div>
+                            <div class="padding-top">Sunset : <span class="sunset"></span></div>
+                        </div>
                     </div>
                 </div>
 

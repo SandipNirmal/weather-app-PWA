@@ -4,15 +4,15 @@
  * 20 Dec 2016
  */
 
- * {
-     margin: 0;
-     padding: 0;
- }
+* {
+    margin: 0;
+    padding: 0;
+}
 
- a {
-     text-decoration: none;
-     color: inherit;
- }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
 html {
     /*background: #6c00f6;*/
@@ -34,10 +34,10 @@ body {
     font-size: 1.2em;
     /* Use systems default font */
     /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Open Sans", "Helvetica Neue", sans-serif;*/
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-shadow: 1px 1px 1px rgba(0,0,0,.54);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .54);
 }
 
 header, main, footer {
@@ -46,9 +46,10 @@ header, main, footer {
 }
 
 header {
-  position: fixed;
-  height: 54px;
+    position: fixed;
+    height: 66px;
 }
+
 
 /** Header Style **/
 
@@ -61,6 +62,7 @@ header div {
 header .menu, header .refresh {
     font-size: 1.3em;
 }
+
 
 /*header .refresh {
     -ms-transform: rotate(90deg);
@@ -75,7 +77,7 @@ header div.city-info {
 }
 
 .weather-app {
-  width: 100vw;
+    width: 100vw;
     /*display: flex;*/
 }
 
@@ -111,11 +113,11 @@ header div.city-info {
 .weather-info .w-cond .cond {
     width: 3em;
     height: 3em;
-    vertical-align: middle;
+    vertical-align: top;
 }
 
 img.cond-code {
-  width:100px;
+    width: 80px;
 }
 
 .weather-info .w-cond span {
@@ -123,71 +125,121 @@ img.cond-code {
 }
 
 .weather-info .temp {
-  display: flex;
+    display: flex;
 }
 
-.weather-info .temp .temp-min,
-.weather-info .temp .temp-max {
-  flex-basis: 4em;
+.weather-info .temp .temp-min, .weather-info .temp .temp-max {
+    flex-basis: 4em;
 }
 
-.weather-info .cur-temp span{
-  font-size: 5em;
+.weather-info .cur-temp span {
+    font-size: 5em;
 }
+
 .weather-info .cur-temp span sup {
-  font-size: .5em;
-  line-height: 1em;
-  vertical-align: top;
+    font-size: .5em;
+    line-height: 1em;
+    vertical-align: top;
 }
 
 
 /** Details **/
+
 .detailed-info {
-  width: 94vw;
-  margin: 10px auto;
+    width: 94vw;
+    margin: 10px auto;
 }
 
 .card {
-  background-color: rgba(0,0,0,.54);
-  padding: 10px;
-  margin: 10px auto;;
+    background-color: rgba(0, 0, 0, .54);
+    padding: 10px;
+    margin: 10px auto;
+    ;
 }
 
 .card .title {
-  padding: 4px 0 2px 0;
-  border-bottom: 1px solid #e1e1e1;
-  font-size: 0.9em;
+    padding: 4px 0 2px 0;
+    border-bottom: 1px solid #e1e1e1;
+    font-size: 0.9em;
 }
 
 
 /* Daily forecast */
 
 .daily-forecast {
-  display: flex;
-  flex-direction: column;
-  font-size: 0.85em;
-  padding: 4px 0;
-  text-shadow: none;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85em;
+    padding: 4px 0;
+    text-shadow: none;
 }
 
 .forecast {
-  display: flex;
-  border-bottom: 1px dotted rgba(255,255,255,.12);
-  padding: 4px 0;
+    display: flex;
+    border-bottom: 1px dotted rgba(255, 255, 255, .12);
+    padding: 4px 0;
 }
 
 .forecast .forecast-day {
-  flex: 2;
+    flex: 2;
 }
 
 .forecast .forecast-cond {
-  flex: 1;
+    flex: 1;
 }
+
 .forecast .forecast-cond img {
-  width: 2em;
-  margin: auto;
+    width: 2em;
+    margin: auto;
 }
 
 .forecast .forecast-temp {
-  flex: 1;
+    flex: 1;
+}
+
+.forecast .forecast-temp span {
+    padding: 4px 6px;
+    line-height: 30px;
+}
+
+
+/**
+ * Other weather details
+ */
+
+.wind-pressure-forecast, .weather-details, .astro-details {
+    display: flex;
+    font-size: 0.75em;
+    padding: 4px 0;
+    text-shadow: none;
+}
+
+.wind-pressure-forecast .wind-icon, .weather-details .cond-icon {
+    flex: 2;
+}
+
+.wind-pressure-forecast .details, .weather-details .details, .astro-details .details {
+    flex: 3;
+    padding: 8px 6px;
+}
+
+.astro-details .sun-pos {
+    flex: 3;
+}
+
+.astro-details .details {
+    flex: 2;
+}
+
+.padding-bottom-border {
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+    padding-bottom: 4px;
+}
+
+.padding-top {
+    padding-top: 4px;
+}
+
+img.weather-condition-icon {
+  width: 100px;
 }
