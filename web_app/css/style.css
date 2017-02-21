@@ -46,7 +46,8 @@ header, main, footer {
 
 header {
     position: fixed;
-    height: 66px;
+    height: 74px;
+    background: #6c00f6;
 }
 
 
