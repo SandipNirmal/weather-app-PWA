@@ -98,6 +98,8 @@
 
                     <div class="wind-pressure-forecast">
                         <div class="wind-icon">
+                          <img class="turbine"/>
+                          <img class="turbine-small"/>
                         </div>
                         <div class="details">
                             <div class="padding-bottom-border">
@@ -117,7 +119,7 @@
 
                     <div class="weather-details">
                         <div class="cond-icon">
-                            <img class="weather-condition-icon" />
+                            <img class="weather-condition-icon"/>
                         </div>
 
                         <div class="details">
@@ -145,11 +147,12 @@
 
                     <div class="astro-details">
                         <div class="sun-pos">
+                            <canvas id="astro-img" width="200" height="120"></canvas>
                         </div>
 
                         <div class="details">
-                            <div class="padding-bottom-border">Sunrise : <span class="sunrise"></span></div>
-                            <div class="padding-top">Sunset : <span class="sunset"></span></div>
+                            <div class="padding-bottom-border">Sunrise <span class="sunrise"></span></div>
+                            <div class="padding-top">Sunset <span class="sunset"></span></div>
                         </div>
                     </div>
                 </div>

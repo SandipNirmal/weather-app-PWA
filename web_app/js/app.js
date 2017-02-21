@@ -164,10 +164,13 @@
                         // Save weather information
                         saveWeatherData(results);
                         updateWeatherData(results);
+                    } else if (request.status > 300) {
+                        savedWeatherData ? updateWeatherData(savedWeatherData.data) :
+                            updateWeatherData(initialWeatherData);
                     }
                 } else {
                     // Return the initial weather forecast since no data is available.
-                    updateWeatherData(initialWeatherData);
+                    //updateWeatherData(initialWeatherData);
                 }
             };
             request.open('GET', url);
@@ -286,6 +289,9 @@
         document.querySelector('.wind-pressure-forecast .wind').innerHTML = `Wind </br> ${wind.speed} km/h ${getWindDirection(wind.direction)}`;
         document.querySelector('.wind-pressure-forecast .pressure').innerHTML = `Barometer </br> ${atmosphere.pressure} milibar`;
 
+        document.querySelector('.wind-pressure-forecast .wind-icon .turbine').src = `./../icons/turbine.png`;
+        document.querySelector('.wind-pressure-forecast .wind-icon .turbine-small').src = `./../icons/turbine.png`;
+
         // details
         document.querySelector('.weather-details .weather-condition-icon').src = `./../icons/${getConditionIcon(current.code)}.png`;
         document.querySelector('.weather-details .feels-like').innerHTML = `${farenheitToCelsius(current.temp)}&#xb0;`;
@@ -295,6 +301,9 @@
         // astronomy
         document.querySelector('.astro-details .sunrise').innerText = `${astronomy.sunrise}`;
         document.querySelector('.astro-details .sunset').innerText = `${astronomy.sunset}`;
+
+        // draw astronomy image
+        drawAstroImage(astronomy);
     }
 
     /**
@@ -466,6 +475,53 @@
      */
     function getWeatherData() {
         return localStorage.getItem('weatherData');
+    }
+
+    /**
+     * Draws astronomy image showing sunrise and sunset alongwith current sun
+     * position
+     */
+    function drawAstroImage(astronomy) {
+        var astro = document.getElementById('astro-img');
+
+        if (astro.getContext) {
+            var ctx = astro.getContext('2d');
+            // clear canvas before drawing
+            ctx.clearRect(0, 0, astro.clientWidth, astro.clientHeight);
+
+            // Draw along the canvas
+            // Straight line
+            ctx.beginPath();
+            ctx.moveTo(10, 100);
+            ctx.lineTo(190, 100);
+            ctx.strokeStyle = "#b1b1b1";
+            ctx.stroke();
+            ctx.closePath();
+
+            // Arc displaying daytime
+            ctx.beginPath();
+            ctx.arc(100, 100, 90, 0, Math.PI, true);
+            ctx.strokeStyle = "#a1a1a1";
+            ctx.stroke()
+
+            // Sun icon
+            ctx.beginPath();
+            ctx.arc(40, 36, 10, 0, Math.PI * 2, true);
+            ctx.fillStyle = "#FDB813";
+            ctx.fill();
+            ctx.closePath();
+
+            // Sunrise
+            ctx.beginPath();
+            ctx.fillStyle = "#a1a1a1";
+            ctx.arc(10, 100, 4, 0, Math.PI * 2, true);
+            ctx.arc(190, 100, 4, 0, Math.PI * 2, true);
+            ctx.fill();
+
+            ctx.fillStyle = "#e1e1e1";
+            ctx.fillText(astronomy.sunrise, 0, 114);
+            ctx.fillText(astronomy.sunset, 165, 114);
+        }
     }
 
     /**
