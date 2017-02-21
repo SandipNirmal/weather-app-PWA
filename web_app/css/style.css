@@ -20,7 +20,7 @@ html {
     background-image: -webkit-linear-gradient(48deg, #6c00f6 15%, #6c00f6 85%);
     background-image: linear-gradient(48deg, #6c00f6 15%, #6c00f6 85%);*/
     /*background-attachment:fixed;*/
-    background: url('/../assets/weather-app.png') no-repeat;
+    background: url('/assets/weather-app.png') no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: center center;
@@ -33,8 +33,8 @@ body {
     color: #ffffff;
     font-size: 1.2em;
     /* Use systems default font */
-    /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Open Sans", "Helvetica Neue", sans-serif;*/
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Open Sans", "Helvetica Neue", sans-serif;
+    /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, .54);
