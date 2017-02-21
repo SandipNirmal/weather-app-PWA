@@ -48,6 +48,7 @@ header {
     position: fixed;
     height: 74px;
     background: #6c00f6;
+    z-index: 10;
 }
 
 
