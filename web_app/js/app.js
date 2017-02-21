@@ -143,7 +143,7 @@
      */
     function getLatestWeather() {
 
-        let savedWeatherData = getWeatherData();
+        let savedWeatherData = JSON.parse(getWeatherData());
 
         // If we have locally stored data and it's not older than 1 hour, use it.
         // else fetch data from network
@@ -290,7 +290,7 @@
         document.querySelector('.wind-pressure-forecast .pressure').innerHTML = `Barometer </br> ${atmosphere.pressure} milibar`;
 
         document.querySelector('.wind-pressure-forecast .wind-icon .turbine').src = `./../icons/turbine.png`;
-        document.querySelector('.wind-pressure-forecast .wind-icon .turbine-small').src = `./../icons/turbine.png`;
+        // document.querySelector('.wind-pressure-forecast .wind-icon .turbine-small').src = `./../icons/turbine.png`;
 
         // details
         document.querySelector('.weather-details .weather-condition-icon').src = `./../icons/${getConditionIcon(current.code)}.png`;

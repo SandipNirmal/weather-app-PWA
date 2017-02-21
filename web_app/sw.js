@@ -19,12 +19,16 @@ this.addEventListener('install', function(event) {
             return cache.addAll([
                 './index.html',
                 './css/style.css',
-                './../w-icons/30.png',
-                './../w-icons/11.png',
-                './../w-icons/13.png',
-                './../w-icons/14.png',
-                './../w-icons/16.png',
-                './../w-icons/23.png',
+                './js/app.js',
+                './../icons/11.png',
+                './../icons/16.png',
+                './../icons/20.png',
+                './../icons/24.png',
+                './../icons/26.png',
+                './../icons/30.png',
+                './../icons/32.png',
+                './../icons/4.png',
+                './../icons/turbine.png',
                 './../assets/weather-app.png'
             ]);
         })
