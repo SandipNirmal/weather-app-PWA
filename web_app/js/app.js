@@ -207,7 +207,7 @@
         document.querySelector('.city-info .time').innerText = `${buildDate}
         (Last Updated)`;
 
-        document.querySelector('#currentWeather .w-cond .cond-code').src = `/icons/${getConditionIcon(current.code)}.png`;
+        document.querySelector('#currentWeather .w-cond .cond-code').src = `./icons/${getConditionIcon(current.code)}.png`;
         document.querySelector('#currentWeather .w-cond .cond').innerText = `${current.text}`;
         document.querySelector('#currentWeather .cur-temp span').innerHTML = `${farenheitToCelsius(current.temp)}&#xb0;`;
 
@@ -289,7 +289,7 @@
         document.querySelector('.wind-pressure-forecast .wind').innerHTML = `Wind </br> ${wind.speed} km/h ${getWindDirection(wind.direction)}`;
         document.querySelector('.wind-pressure-forecast .pressure').innerHTML = `Barometer </br> ${atmosphere.pressure} milibar`;
 
-        document.querySelector('.wind-pressure-forecast .wind-icon .turbine').src = `/icons/turbine.png`;
+        document.querySelector('.wind-pressure-forecast .wind-icon .turbine').src = `./icons/turbine.png`;
         // document.querySelector('.wind-pressure-forecast .wind-icon .turbine-small').src = `./icons/turbine.png`;
 
         // details
