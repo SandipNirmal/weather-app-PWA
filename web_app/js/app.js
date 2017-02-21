@@ -293,7 +293,7 @@
         // document.querySelector('.wind-pressure-forecast .wind-icon .turbine-small').src = `./icons/turbine.png`;
 
         // details
-        document.querySelector('.weather-details .weather-condition-icon').src = `/icons/${getConditionIcon(current.code)}.png`;
+        document.querySelector('.weather-details .weather-condition-icon').src = `./icons/${getConditionIcon(current.code)}.png`;
         document.querySelector('.weather-details .feels-like').innerHTML = `${farenheitToCelsius(current.temp)}&#xb0;`;
         document.querySelector('.weather-details .humidity').innerHTML = `${atmosphere.humidity} %`;
         document.querySelector('.weather-details .visibility').innerHTML = `${atmosphere.visibility} km`;
