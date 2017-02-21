@@ -18,19 +18,19 @@ this.addEventListener('install', event => {
        caches.open(version)
        .then(cache => {
          return cache.addAll([
-             './index.html',
-             './web_app/css/style.css',
-             './web_app/js/app.js',
-             './../icons/11.png',
-             './../icons/16.png',
-             './../icons/20.png',
-             './../icons/24.png',
-             './../icons/26.png',
-             './../icons/30.png',
-             './../icons/32.png',
-             './../icons/4.png',
-             './../icons/turbine.png',
-             './../assets/weather-app.png'
+             'index.html',
+             'web_app/css/style.css',
+             'web_app/js/app.js',
+             'icons/11.png',
+             'icons/16.png',
+             'icons/20.png',
+             'icons/24.png',
+             'icons/26.png',
+             'icons/30.png',
+             'icons/32.png',
+             'icons/4.png',
+             'icons/turbine.png',
+             'assets/weather-app.png'
          ]);
        })
    );
