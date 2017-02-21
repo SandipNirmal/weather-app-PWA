@@ -73,6 +73,7 @@ header .menu, header .refresh {
 
 header div.city-info {
     flex-grow: 1;
+    margin-top:12px;
 }
 
 .weather-app {
