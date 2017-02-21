@@ -10,14 +10,15 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Weather app PWA">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="web_app/favicon.png">
     <!-- TODO Add other meta info -->
 
+    <link rel="icon" type="image/x-icon" href="web_app/favicon.png">
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="web_app/css/style.css">
 
     <!-- App Manifest -->
-    <!-- <link rel="manifest" href="manifest.json"> -->
+    <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
@@ -99,7 +100,7 @@
                     <div class="wind-pressure-forecast">
                         <div class="wind-icon">
                           <img class="turbine"/>
-                          <img class="turbine-small"/>
+                          <!-- <img class="turbine-small"/> -->
                         </div>
                         <div class="details">
                             <div class="padding-bottom-border">
@@ -164,22 +165,22 @@
 
     <!-- service worker inject -->
     <script>
-        // if ('serviceWorker' in navigator) {
-        //     window.addEventListener('load', () => {
-        //         navigator.serviceWorker.register('./sw.js')
-        //             .then(registration => {
-        //                 // Registration was successful
-        //                 console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        //             }).catch(err => {
-        //                 // registration failed :(
-        //                 console.log('ServiceWorker registration failed: ', err);
-        //             });
-        //     });
-        // }
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => {
+                        // Registration was successful
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }).catch(err => {
+                        // registration failed :(
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
     </script>
 
     <!-- script inject -->
-    <script src="js/app.js"></script>
+    <script src="web_app/js/app.js"></script>
 
 </body>
 
