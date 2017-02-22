@@ -286,8 +286,8 @@
      */
     function updateWeatherInfo(wind, atmosphere, astronomy, current) {
         // wind and pressure
-        document.querySelector('.wind-pressure-forecast .wind').innerHTML = `Wind </br> ${wind.speed} km/h ${getWindDirection(wind.direction)}`;
-        document.querySelector('.wind-pressure-forecast .pressure').innerHTML = `Barometer </br> ${atmosphere.pressure} milibar`;
+        document.querySelector('.wind-pressure-forecast .wind').innerHTML = `Wind </br> ${wind.speed} mph ${getWindDirection(wind.direction)}`;
+        document.querySelector('.wind-pressure-forecast .pressure').innerHTML = `Barometer </br> ${atmosphere.pressure} milibars`;
 
         document.querySelector('.wind-pressure-forecast .wind-icon .turbine').src = `./../icons/turbine.png`;
         // document.querySelector('.wind-pressure-forecast .wind-icon .turbine-small').src = `./../icons/turbine.png`;
