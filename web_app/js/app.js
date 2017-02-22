@@ -19,124 +19,20 @@
         yqlStatement: `select * from weather.forecast where woeid=`
     };
 
-    // initial weather data to initialise
-    const initialWeatherData = {
-        "units": {
-            "distance": "mi",
-            "pressure": "in",
-            "speed": "mph",
-            "temperature": "F"
-        },
-        "title": "Yahoo! Weather - Pune, MH, IN",
-        "link": "http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-2295412/",
-        "description": "Yahoo! Weather for Pune, MH, IN",
-        "language": "en-us",
-        "lastBuildDate": "Wed, 21 Dec 2016 12:01 PM IST",
-        "ttl": "60",
-        "location": {
-            "city": "Pune",
-            "country": "India",
-            "region": " MH"
-        },
-        "wind": {
-            "chill": "73",
-            "direction": "68",
-            "speed": "4"
-        },
-        "atmosphere": {
-            "humidity": "42",
-            "pressure": "945.0",
-            "rising": "0",
-            "visibility": "16.1"
-        },
-        "astronomy": {
-            "sunrise": "7:3 am",
-            "sunset": "6:4 pm"
-        },
-        "image": {
-            "title": "Yahoo! Weather",
-            "width": "142",
-            "height": "18",
-            "link": "http://weather.yahoo.com",
-            "url": "http://l.yimg.com/a/i/brand/purplelogo//uh/us/news-wea.gif"
-        },
-        "item": {
-            "title": "Conditions for Pune, MH, IN at 10:30 AM IST",
-            "lat": "18.53611",
-            "long": "73.85218",
-            "link": "http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-2295412/",
-            "pubDate": "Wed, 21 Dec 2016 10:30 AM IST",
-            "condition": {
-                "code": "30",
-                "date": "Wed, 21 Dec 2016 10:30 AM IST",
-                "temp": "91",
-                "text": "Clear"
-            },
-            "forecast": [{
-                "code": "30",
-                "date": "21 Dec 2016",
-                "day": "Wed",
-                "high": "85",
-                "low": "57",
-                "text": "Partly Cloudy"
-            }, {
-                "code": "30",
-                "date": "22 Dec 2016",
-                "day": "Thu",
-                "high": "86",
-                "low": "62",
-                "text": "Partly Cloudy"
-            }, {
-                "code": "30",
-                "date": "23 Dec 2016",
-                "day": "Fri",
-                "high": "87",
-                "low": "59",
-                "text": "Partly Cloudy"
-            }, {
-                "code": "32",
-                "date": "24 Dec 2016",
-                "day": "Sat",
-                "high": "88",
-                "low": "61",
-                "text": "Sunny"
-            }, {
-                "code": "32",
-                "date": "25 Dec 2016",
-                "day": "Sun",
-                "high": "88",
-                "low": "63",
-                "text": "Sunny"
-            }, {
-                "code": "32",
-                "date": "26 Dec 2016",
-                "day": "Mon",
-                "high": "87",
-                "low": "63",
-                "text": "Sunny"
-            }],
-            "description": "<![CDATA[<img src=\"http://l.yimg.com/a/i/us/we/52/30.gif\"/>\n<BR />\n<b>Current Conditions:</b>\n<BR />Partly Cloudy\n<BR />\n<BR />\n<b>Forecast:</b>\n<BR /> Wed - Partly Cloudy. High: 85Low: 57\n<BR /> Thu - Partly Cloudy. High: 86Low: 62\n<BR /> Fri - Partly Cloudy. High: 87Low: 59\n<BR /> Sat - Sunny. High: 88Low: 61\n<BR /> Sun - Sunny. High: 88Low: 63\n<BR />\n<BR />\n<a href=\"http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-2295412/\">Full Forecast at Yahoo! Weather</a>\n<BR />\n<BR />\n(provided by <a href=\"http://www.weather.com\" >The Weather Channel</a>)\n<BR />\n]]>",
-            "guid": {
-                "isPermaLink": "false"
-            }
-        }
-    };
-
     /**
      * Add event handlers
      */
-    window.onscroll = handleScroll;
-
     app.refreshBtn.addEventListener('click', getLatestWeather);
 
     // Make weather data request for latest Data
     getLatestWeather();
 
+    // window.onscroll = handleScroll;
     /**
      * Handles window scroll event, apply position fixed to current weather
      * container once it is scrolled past header
      */
-    function handleScroll() {}
+    // function handleScroll() {}
 
     /**
      * Fetch latest weather info using yahoo weather API
@@ -165,8 +61,8 @@
                         saveWeatherData(results);
                         updateWeatherData(results);
                     } else if (request.status > 300) {
-                        savedWeatherData ? updateWeatherData(savedWeatherData.data) :
-                            updateWeatherData(initialWeatherData);
+                        savedWeatherData && updateWeatherData(savedWeatherData.data);
+                        // TODO - Add error message toast for offline error
                     }
                 } else {
                     // Return the initial weather forecast since no data is available.
@@ -286,8 +182,8 @@
      */
     function updateWeatherInfo(wind, atmosphere, astronomy, current) {
         // wind and pressure
-        document.querySelector('.wind-pressure-forecast .wind').innerHTML = `Wind </br> ${wind.speed} km/h ${getWindDirection(wind.direction)}`;
-        document.querySelector('.wind-pressure-forecast .pressure').innerHTML = `Barometer </br> ${atmosphere.pressure} milibar`;
+        document.querySelector('.wind-pressure-forecast .wind').innerHTML = `Wind </br> ${wind.speed} mph ${getWindDirection(wind.direction)}`;
+        document.querySelector('.wind-pressure-forecast .pressure').innerHTML = `Barometer </br> ${atmosphere.pressure} millibars`;
 
         document.querySelector('.wind-pressure-forecast .wind-icon .turbine').src = `./icons/turbine.png`;
         // document.querySelector('.wind-pressure-forecast .wind-icon .turbine-small').src = `./icons/turbine.png`;
