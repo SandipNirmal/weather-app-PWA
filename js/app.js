@@ -16,7 +16,9 @@
         currentLocation: {},
         woeid: 2295412, // woeid for Pune
         yahooWeatherApi: `https://query.yahooapis.com/v1/public/yql?format=json&q=`,
-        yqlStatement: `select * from weather.forecast where woeid=`
+        // yqlStatementForWoeid: `select * from weather.forecast where woeid=`,
+        yqlStatementForLatLong: `select * from weather.forecast where woeid in (SELECT woeid FROM geo.places WHERE text="(40.7141667,-74.0063889)")`
+
     };
 
     // initial weather data to initialise
@@ -125,18 +127,19 @@
     /**
      * Add event handlers
      */
-    window.onscroll = handleScroll;
+    // window.onscroll = handleScroll;
 
     app.refreshBtn.addEventListener('click', getLatestWeather);
 
     // Make weather data request for latest Data
-    getLatestWeather();
+    // getLatestWeather();
+    getCurrentLocation();
 
     /**
      * Handles window scroll event, apply position fixed to current weather
      * container once it is scrolled past header
      */
-    function handleScroll() {}
+    // function handleScroll() {}
 
     /**
      * Fetch latest weather info using yahoo weather API
@@ -151,7 +154,11 @@
             (savedWeatherData.dataSavedAt > (new Date().getTime() - (60 * 60 * 1000)))) {
             updateWeatherData(savedWeatherData.data);
         } else {
-            const url = `${app.yahooWeatherApi}${app.yqlStatement}${app.woeid}`;
+            const yqlStatement = app.currentLocation.lat 
+                                    ? `select * from weather.forecast where woeid in (SELECT woeid FROM geo.places WHERE text="(${app.currentLocation.lat},${app.currentLocation.lon})")`
+                                    : `select * from weather.forecast where woeid=${app.woeid}`;
+            
+            const url = `${app.yahooWeatherApi}${yqlStatement}`;
 
             // Fetch the latest data.
             const request = new XMLHttpRequest();
@@ -535,6 +542,7 @@
                 updateLocationInfo(data);
             }, err => {
                 console.log('Error occurred', err)
+                // Use fallback location to fetch weather data
             });
         }
     }
@@ -547,13 +555,16 @@
         const lat = data && data.coords.latitude;
         const lon = data && data.coords.longitude;
 
-        currentLocation = {
+        app.currentLocation = {
             lat: lat,
             lon: lon
         };
 
         // update lastKnownLocation only if currentLocation values are defined
-        lat && (lastKnownLocation.lat = lat);
-        lon && (lastKnownLocation.lon = lon);
+        lat && (app.lastKnownLocation.lat = lat);
+        lon && (app.lastKnownLocation.lon = lon);
+
+        // get latest weather info for current location
+        getLatestWeather();
     }
 })();
