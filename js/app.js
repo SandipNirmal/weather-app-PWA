@@ -29,10 +29,6 @@
             "speed": "mph",
             "temperature": "F"
         },
-        "title": "Yahoo! Weather - Pune, MH, IN",
-        "link": "http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-2295412/",
-        "description": "Yahoo! Weather for Pune, MH, IN",
-        "language": "en-us",
         "lastBuildDate": "Wed, 21 Dec 2016 12:01 PM IST",
         "ttl": "60",
         "location": {
@@ -129,7 +125,7 @@
      */
     // window.onscroll = handleScroll;
 
-    app.refreshBtn.addEventListener('click', getLatestWeather);
+    app.refreshBtn.addEventListener('click', getCurrentLocation);
 
     // Make weather data request for latest Data
     // getLatestWeather();
@@ -150,14 +146,15 @@
 
         // If we have locally stored data and it's not older than 1 hour, use it.
         // else fetch data from network
+        // TODO - Add changes for to support location changes to fetch fresh data
         if (savedWeatherData &&
             (savedWeatherData.dataSavedAt > (new Date().getTime() - (60 * 60 * 1000)))) {
             updateWeatherData(savedWeatherData.data);
         } else {
-            const yqlStatement = app.currentLocation.lat 
+            const yqlStatement = app.currentLocation.lat
                                     ? `select * from weather.forecast where woeid in (SELECT woeid FROM geo.places WHERE text="(${app.currentLocation.lat},${app.currentLocation.lon})")`
                                     : `select * from weather.forecast where woeid=${app.woeid}`;
-            
+
             const url = `${app.yahooWeatherApi}${yqlStatement}`;
 
             // Fetch the latest data.
@@ -194,6 +191,7 @@
     function updateWeatherData(weatherData) {
         console.log('Weather Data', weatherData);
 
+        // Destruct weatherData object to get required values
         let {
             location,
             item: {

@@ -65,13 +65,24 @@ header .menu, header .refresh {
 }
 
 
-/*header .refresh {
-    -ms-transform: rotate(90deg);
-    /* IE 9
-    -webkit-transform: rotate(90deg);
-    /* Safari
-    transform: rotate(90deg);
-}*/
+header .refresh {
+    transition: transform 4s linear infinite;
+    -webkit-transition: -webkit-transform 4s linear;
+    /*-webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;*/
+}
+
+header .refresh:hover {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 header div.city-info {
     flex-grow: 1;
