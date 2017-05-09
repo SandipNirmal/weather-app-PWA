@@ -276,3 +276,11 @@ img.turbine-small {
     left: 50px;
     z-index: 0;
 }
+
+.locationErr {
+    display: none;
+    font-size: 12px;
+    color: #c4c4c4;
+    text-shadow: none;
+}
+

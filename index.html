@@ -2,96 +2,97 @@
 <html>
 
 <head>
-    <title>Weather App</title>
+  <title>Weather App</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="favicon.png">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
 
-    <!-- Meta Spcific to iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Weather App PWA">
-    <link rel="apple-touch-icon" href="favicon.png">
+  <!-- Meta Spcific to iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Weather App PWA">
+  <link rel="apple-touch-icon" href="favicon.png">
 
-    <!-- Theme color for android app -->
-    <meta name="theme-color" content="#6c00f6">
+  <!-- Theme color for android app -->
+  <meta name="theme-color" content="#6c00f6">
 
-    <!-- Metadata for windows devices -->
-    <meta name="application-name" content="Weather App PWA" />
-    <meta name="msapplication-TileColor" content="#6c00f6" />
-    <meta name="msapplication-square70x70logo" content="assets/app-icons/app_icon_72x72.png" />
-    <meta name="msapplication-square150x150logo" content="assets/app-icons/app_icon_96x96.png" />
-    <meta name="msapplication-wide310x150logo" content="assets/app-icons/app_icon_144x144.png" />
-    <meta name="msapplication-square310x310logo" content="assets/app-icons/app_icon_192x192.png" />
+  <!-- Metadata for windows devices -->
+  <meta name="application-name" content="Weather App PWA" />
+  <meta name="msapplication-TileColor" content="#6c00f6" />
+  <meta name="msapplication-square70x70logo" content="assets/app-icons/app_icon_72x72.png" />
+  <meta name="msapplication-square150x150logo" content="assets/app-icons/app_icon_96x96.png" />
+  <meta name="msapplication-wide310x150logo" content="assets/app-icons/app_icon_144x144.png" />
+  <meta name="msapplication-square310x310logo" content="assets/app-icons/app_icon_192x192.png" />
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
 
-    <!-- App Manifest -->
-    <link rel="manifest" href="manifest.json">
+  <!-- App Manifest -->
+  <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
 
-    <header class="header">
-        <div class="menu">
-            <a href="#" class="icon-menu">
+  <header class="header">
+    <div class="menu">
+      <a href="#" class="icon-menu">
         &#9776;
       </a>
-        </div>
+    </div>
 
-        <div class="city-info">
-            <div class="place">--</div>
-            <div class="time">--</div>
-        </div>
+    <div class="city-info">
+      <div class="place">--</div>
+      <div class="time">--</div>
+      <div class="locationErr">Failed to get current location, using fallback location!</div>
+    </div>
 
-        <div id="btnRefresh" class="refresh">
-            <a href="#" class="icon-refresh">
+    <div id="btnRefresh" class="refresh">
+      <a href="#" class="icon-refresh">
         &#x21bb;
       </a>
-        </div>
-    </header>
+    </div>
+  </header>
 
-    <main>
-        <div class="weather-app">
-            <div class="basic-info">
-                <div id="currentWeather" class="weather-info">
-                    <div class="w-cond">
-                        <img class="cond-code">
-                        <span class="cond"></span>
-                    </div>
-                    <div class="temp">
-                        <!-- TODO svg arrow with top horizontal line -->
-                        <div class="temp-max" id="temp-max">
-                        </div>
-
-                        <div class="temp-min" id="temp-min">
-                        </div>
-                    </div>
-                    <div class="cur-temp">
-                        <span></span>
-                    </div>
-                </div>
+  <main>
+    <div class="weather-app">
+      <div class="basic-info">
+        <div id="currentWeather" class="weather-info">
+          <div class="w-cond">
+            <img class="cond-code">
+            <span class="cond"></span>
+          </div>
+          <div class="temp">
+            <!-- TODO svg arrow with top horizontal line -->
+            <div class="temp-max" id="temp-max">
             </div>
 
-            <div class="detailed-info">
+            <div class="temp-min" id="temp-min">
+            </div>
+          </div>
+          <div class="cur-temp">
+            <span></span>
+          </div>
+        </div>
+      </div>
 
-                <!-- Weather forecast -->
-                <div id="forecast" class="card">
-                    <div class="title">
-                        Forecast
-                    </div>
-                    <!-- <div id="hourly-forecast" class="hourly-forecast">
+      <div class="detailed-info">
+
+        <!-- Weather forecast -->
+        <div id="forecast" class="card">
+          <div class="title">
+            Forecast
+          </div>
+          <!-- <div id="hourly-forecast" class="hourly-forecast">
                     Temperature
                 </div> -->
 
-                    <div id="daily-forecast" class="daily-forecast">
-                    </div>
-                </div>
+          <div id="daily-forecast" class="daily-forecast">
+          </div>
+        </div>
 
-                <!-- <div id="precipitation" class="card">
+        <!-- <div id="precipitation" class="card">
                 <div class="title">
                     Precipitation
                 </div>
@@ -104,96 +105,97 @@
                 </div>
             </div> -->
 
-                <div id="wind-pressure" class="card">
-                    <div class="title">
-                        Wind &amp; Pressure
-                    </div>
+        <div id="wind-pressure" class="card">
+          <div class="title">
+            Wind &amp; Pressure
+          </div>
 
-                    <div class="wind-pressure-forecast">
-                        <div class="wind-icon">
-                            <img class="turbine" />
-                            <!-- <img class="turbine-small"/> -->
-                        </div>
-                        <div class="details">
-                            <div class="padding-bottom-border">
-                                <span class="wind"></span>
-                            </div>
-                            <div class="padding-top">
-                                <span class="pressure"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="weather-details-container" class="card">
-                    <div class="title">
-                        Details
-                    </div>
-
-                    <div class="weather-details">
-                        <div class="cond-icon">
-                            <img class="weather-condition-icon" />
-                        </div>
-
-                        <div class="details">
-                            <div class="padding-bottom-border">
-                                Feels like <span class="feels-like"></span>
-                            </div>
-                            <div class="padding-bottom-border padding-top">
-                                Humidity <span class="humidity"></span>
-                            </div>
-                            <div class="padding-bottom-border padding-top">
-                                Visibility <span class="visibility"></span>
-                            </div>
-                            <div class="padding-top">
-                                UV Index <span>0 (low)</span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div id="astro" class="card">
-                    <div class="title">
-                        Sun &amp; Moon
-                    </div>
-
-                    <div class="astro-details">
-                        <div class="sun-pos">
-                            <canvas id="astro-img" width="200" height="120"></canvas>
-                        </div>
-
-                        <div class="details">
-                            <div class="padding-bottom-border">Sunrise <span class="sunrise"></span></div>
-                            <div class="padding-top">Sunset <span class="sunset"></span></div>
-                        </div>
-                    </div>
-                </div>
-
+          <div class="wind-pressure-forecast">
+            <div class="wind-icon">
+              <img class="turbine" />
+              <!-- <img class="turbine-small"/> -->
             </div>
+            <div class="details">
+              <div class="padding-bottom-border">
+                <span class="wind"></span>
+              </div>
+              <div class="padding-top">
+                <span class="pressure"></span>
+              </div>
+            </div>
+          </div>
         </div>
-    </main>
+
+        <div id="weather-details-container" class="card">
+          <div class="title">
+            Details
+          </div>
+
+          <div class="weather-details">
+            <div class="cond-icon">
+              <img class="weather-condition-icon" />
+            </div>
+
+            <div class="details">
+              <div class="padding-bottom-border">
+                Feels like <span class="feels-like"></span>
+              </div>
+              <div class="padding-bottom-border padding-top">
+                Humidity <span class="humidity"></span>
+              </div>
+              <div class="padding-bottom-border padding-top">
+                Visibility <span class="visibility"></span>
+              </div>
+              <div class="padding-top">
+                UV Index <span>0 (low)</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div id="astro" class="card">
+          <div class="title">
+            Sun &amp; Moon
+          </div>
+
+          <div class="astro-details">
+            <div class="sun-pos">
+              <canvas id="astro-img" width="200" height="120"></canvas>
+            </div>
+
+            <div class="details">
+              <div class="padding-bottom-border">Sunrise <span class="sunrise"></span></div>
+              <div class="padding-top">Sunset <span class="sunset"></span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
 
 
-    <!-- service worker inject -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then(registration => {
-                        // Registration was successful
-                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                    }).catch(err => {
-                        // registration failed :(
-                        console.log('ServiceWorker registration failed: ', err);
-                    });
-            });
-        }
-    </script>
+  <!-- service worker inject -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(registration => {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }).catch(err => {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+          });
+      });
+    }
 
-    <!-- script inject -->
-    <script src="js/util.js"></script>
-    <script src="js/app.js"></script>
+  </script>
+
+  <!-- script inject -->
+  <script src="js/util.js"></script>
+  <script src="js/app.js"></script>
 
 </body>
 
