@@ -5,7 +5,7 @@
  */
 
 // App version
-const version = 'app-v0.0.3';
+const version = 'app-v0.0.4';
 
 /**
  * Service Worker install event
@@ -21,16 +21,16 @@ this.addEventListener('install', event => {
               './index.html',
               './css/style.css',
               './js/app.js',
-              './../icons/11.png',
-              './../icons/16.png',
-              './../icons/20.png',
-              './../icons/24.png',
-              './../icons/26.png',
-              './../icons/30.png',
-              './../icons/32.png',
-              './../icons/4.png',
-              './../icons/turbine.png',
-              './../assets/weather-app.png'
+              './icons/11.png',
+              './icons/16.png',
+              './icons/20.png',
+              './icons/24.png',
+              './icons/26.png',
+              './icons/30.png',
+              './icons/32.png',
+              './icons/4.png',
+              './icons/turbine.png',
+              './assets/weather-app.png'
           ]);
         })
     );
