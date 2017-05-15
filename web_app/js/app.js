@@ -115,7 +115,7 @@
 
     document.querySelector('.city-info .locationErr').style.display = app.locationFound ? 'none' : 'block';
 
-    document.querySelector('#currentWeather .w-cond .cond-code').src = `./../icons/${Util.getConditionIcon(current.code)}.png`;
+    document.querySelector('#currentWeather .w-cond .cond-code').src = `../../icons/${Util.getConditionIcon(current.code)}.png`;
     document.querySelector('#currentWeather .w-cond .cond').innerText = `${current.text}`;
     document.querySelector('#currentWeather .cur-temp span').innerHTML = `${Util.farenheitToCelsius(current.temp)}&#xb0;`;
 
