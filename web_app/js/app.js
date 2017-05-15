@@ -157,7 +157,7 @@
       forecast_cond.className = "forecast-cond";
 
       let cond_icon = document.createElement('img');
-      cond_icon.src = `./../../icons/${Util.getConditionIcon(forecastForDay.code)}.png`;
+      cond_icon.src = `./icons/${Util.getConditionIcon(forecastForDay.code)}.png`;
 
       let forecast_temp = document.createElement('div');
       forecast_temp.className = "forecast-temp";
