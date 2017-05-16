@@ -115,7 +115,7 @@
 
     document.querySelector('.city-info .locationErr').style.display = app.locationFound ? 'none' : 'block';
 
-    document.querySelector('#currentWeather .w-cond .cond-code').src = `../../icons/${Util.getConditionIcon(current.code)}.png`;
+    document.querySelector('#currentWeather .w-cond .cond-code').src = `../../weather-app-PWA/icons/${Util.getConditionIcon(current.code)}.png`;
     console.log("document.querySelector('#currentWeather .w-cond .cond-code').src", document.querySelector('#currentWeather .w-cond .cond-code').src);
     document.querySelector('#currentWeather .w-cond .cond').innerText = `${current.text}`;
     document.querySelector('#currentWeather .cur-temp span').innerHTML = `${Util.farenheitToCelsius(current.temp)}&#xb0;`;
@@ -158,7 +158,7 @@
       forecast_cond.className = "forecast-cond";
 
       let cond_icon = document.createElement('img');
-      cond_icon.src = `../../icons/${Util.getConditionIcon(forecastForDay.code)}.png`;
+      cond_icon.src = `../../weather-app-PWA/icons/${Util.getConditionIcon(forecastForDay.code)}.png`;
 
       let forecast_temp = document.createElement('div');
       forecast_temp.className = "forecast-temp";
@@ -198,11 +198,11 @@
     document.querySelector('.wind-pressure-forecast .wind').innerHTML = `Wind </br> ${wind.speed} mph ${Util.getWindDirection(wind.direction)}`;
     document.querySelector('.wind-pressure-forecast .pressure').innerHTML = `Barometer </br> ${atmosphere.pressure} milibars`;
 
-    document.querySelector('.wind-pressure-forecast .wind-icon .turbine').src = `./../icons/turbine.png`;
+    document.querySelector('.wind-pressure-forecast .wind-icon .turbine').src = `../../weather-app-PWA/icons/turbine.png`;
     // document.querySelector('.wind-pressure-forecast .wind-icon .turbine-small').src = `./../icons/turbine.png`;
 
     // details
-    document.querySelector('.weather-details .weather-condition-icon').src = `./../icons/${Util.getConditionIcon(current.code)}.png`;
+    document.querySelector('.weather-details .weather-condition-icon').src = `../../weather-app-PWA/icons/${Util.getConditionIcon(current.code)}.png`;
     document.querySelector('.weather-details .feels-like').innerHTML = `${Util.farenheitToCelsius(current.temp)}&#xb0;`;
     document.querySelector('.weather-details .humidity').innerHTML = `${atmosphere.humidity} %`;
     document.querySelector('.weather-details .visibility').innerHTML = `${atmosphere.visibility} km`;
