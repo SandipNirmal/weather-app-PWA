@@ -18,7 +18,7 @@ this.addEventListener('install', event => {
        caches.open(version)
        .then(cache => {
          return cache.addAll([
-             'index.html',
+             'https://sandipnirmal.github.io/weather-app-PWA/index.html',
              'web_app/css/style.css',
              'web_app/js/app.js',
              'icons/11.png',
@@ -29,8 +29,7 @@ this.addEventListener('install', event => {
              'icons/30.png',
              'icons/32.png',
              'icons/4.png',
-             'icons/turbine.png',
-             'assets/weather-app.png'
+             'icons/turbine.png'
          ]);
        })
    );
