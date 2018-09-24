@@ -5,7 +5,7 @@
  */
 
 // App version
-const version = 'app-v0.0.4';
+const version = 'app-v0.0.6';
 
 /**
  * Service Worker install event
@@ -19,7 +19,9 @@ this.addEventListener('install', event => {
         .then(cache => {
           return cache.addAll([
               './index.html',
+              'http://localhost:5000',
               './css/style.css',
+              './js/script.js',
               './js/app.js',
               './icons/11.png',
               './icons/16.png',
