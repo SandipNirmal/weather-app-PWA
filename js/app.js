@@ -14,17 +14,11 @@
     refreshBtn: document.getElementById('btnRefresh'),
     lastKnownLocation: {},
     currentLocation: {},
-    woeid: 2295412, // woeid for Pune
-    yahooWeatherApi: `https://query.yahooapis.com/v1/public/yql?format=json&q=`,
-    // yqlStatementForWoeid: `select * from weather.forecast where woeid=`,
-    yqlStatementForLatLong: `select * from weather.forecast where woeid in (SELECT woeid FROM geo.places WHERE text="(40.7141667,-74.0063889)")`,
+    yahooWeatherApi: Constant.API_URL,
+    lat: 18.491196888942024,
+    lon: 73.7923624709481,
     locationFound: false
   };
-
-  /**
-   * Add event handlers
-   */
-  // window.onscroll = handleScroll;
 
   app.refreshBtn.addEventListener('click', getCurrentLocation);
 
@@ -52,37 +46,23 @@
       (savedWeatherData.dataSavedAt > (new Date().getTime() - (60 * 60 * 1000)))) {
       updateWeatherData(savedWeatherData.data);
     } else {
-      const yqlStatement = app.currentLocation.lat ?
-        `select * from weather.forecast where woeid in (SELECT woeid FROM geo.places WHERE text="(${app.currentLocation.lat},${app.currentLocation.lon})")` :
-        `select * from weather.forecast where woeid=${app.woeid}`;
+      const {lat, lon} = app.currentLocation
 
-      const url = `${app.yahooWeatherApi}${yqlStatement}`;
+      const params = lat
+        ? `lat=${lat}&lon=${lon}`
+        : `lat=${app.lat}&lon=${app.lon}`;
 
-      // Fetch the latest data.
-      const request = new XMLHttpRequest();
+      const url = `${app.yahooWeatherApi}?${params}&format=json`;
 
-      request.onreadystatechange = () => {
-        if (request.readyState === XMLHttpRequest.DONE) {
-          if (request.status === 200) {
-            const response = JSON.parse(request.response);
-            const results = response.query.results.channel;
-            // Save weather information
-            saveWeatherData(results);
-            updateWeatherData(results);
-          } else if (request.status > 300) {
-            savedWeatherData ? updateWeatherData(savedWeatherData.data) :
-              updateWeatherData(Util.initialWeatherData);
-          }
-        } else {
-          // Return the initial weather forecast since no data is available.
-          //updateWeatherData(initialWeatherData);
-        }
-      };
-      request.open('GET', url);
-      request.send();
+      let headers = new Headers();
+      headers.set('Authorization', Util.getAuthToken());
+      headers.set('X-Yahoo-App-Id', Constant.APP_ID);
+    
+      fetch(url, {headers})
+      .then((res) => res.json())
+      .then((res) => console.log(res))
+      .catch((e) => {console.log('error', e)})
     }
-
-    // updateWeatherData(initialWeatherData);
   }
 
   /**
@@ -239,10 +219,10 @@
    * position
    */
   function drawAstroImage(astronomy) {
-    var astro = document.getElementById('astro-img');
+    const astro = document.getElementById('astro-img');
 
     if (astro.getContext) {
-      var ctx = astro.getContext('2d');
+      const ctx = astro.getContext('2d');
       // clear canvas before drawing
       ctx.clearRect(0, 0, astro.clientWidth, astro.clientHeight);
 

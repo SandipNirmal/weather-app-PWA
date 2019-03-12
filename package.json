@@ -20,5 +20,6 @@
   "bugs": {
     "url": "https://github.com/SandipNirmal/weather-app-PWA/issues"
   },
-  "homepage": "https://github.com/SandipNirmal/weather-app-PWA#readme"
+  "homepage": "https://github.com/SandipNirmal/weather-app-PWA#readme",
+  "dependencies": {}
 }

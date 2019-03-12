@@ -7,116 +7,125 @@
 window.Util = (function Utils() {
 
   // initial weather data to initialise
-    const initialWeatherData = {
-        "units": {
-            "distance": "mi",
-            "pressure": "in",
-            "speed": "mph",
-            "temperature": "F"
-        },
-        "lastBuildDate": "Wed, 21 Dec 2016 12:01 PM IST",
-        "ttl": "60",
-        "location": {
-            "city": "Pune",
-            "country": "India",
-            "region": " MH"
-        },
-        "wind": {
-            "chill": "73",
-            "direction": "68",
-            "speed": "4"
-        },
-        "atmosphere": {
-            "humidity": "42",
-            "pressure": "945.0",
-            "rising": "0",
-            "visibility": "16.1"
-        },
-        "astronomy": {
-            "sunrise": "7:3 am",
-            "sunset": "6:4 pm"
-        },
-        "image": {
-            "title": "Yahoo! Weather",
-            "width": "142",
-            "height": "18",
-            "link": "http://weather.yahoo.com",
-            "url": "http://l.yimg.com/a/i/brand/purplelogo//uh/us/news-wea.gif"
-        },
-        "item": {
-            "title": "Conditions for Pune, MH, IN at 10:30 AM IST",
-            "lat": "18.53611",
-            "long": "73.85218",
-            "link": "http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-2295412/",
-            "pubDate": "Wed, 21 Dec 2016 10:30 AM IST",
-            "condition": {
-                "code": "30",
-                "date": "Wed, 21 Dec 2016 10:30 AM IST",
-                "temp": "91",
-                "text": "Clear"
-            },
-            "forecast": [{
-                "code": "30",
-                "date": "21 Dec 2016",
-                "day": "Wed",
-                "high": "85",
-                "low": "57",
-                "text": "Partly Cloudy"
-            }, {
-                "code": "30",
-                "date": "22 Dec 2016",
-                "day": "Thu",
-                "high": "86",
-                "low": "62",
-                "text": "Partly Cloudy"
-            }, {
-                "code": "30",
-                "date": "23 Dec 2016",
-                "day": "Fri",
-                "high": "87",
-                "low": "59",
-                "text": "Partly Cloudy"
-            }, {
-                "code": "32",
-                "date": "24 Dec 2016",
-                "day": "Sat",
-                "high": "88",
-                "low": "61",
-                "text": "Sunny"
-            }, {
-                "code": "32",
-                "date": "25 Dec 2016",
-                "day": "Sun",
-                "high": "88",
-                "low": "63",
-                "text": "Sunny"
-            }, {
-                "code": "32",
-                "date": "26 Dec 2016",
-                "day": "Mon",
-                "high": "87",
-                "low": "63",
-                "text": "Sunny"
-            }],
-            "description": "<![CDATA[<img src=\"http://l.yimg.com/a/i/us/we/52/30.gif\"/>\n<BR />\n<b>Current Conditions:</b>\n<BR />Partly Cloudy\n<BR />\n<BR />\n<b>Forecast:</b>\n<BR /> Wed - Partly Cloudy. High: 85Low: 57\n<BR /> Thu - Partly Cloudy. High: 86Low: 62\n<BR /> Fri - Partly Cloudy. High: 87Low: 59\n<BR /> Sat - Sunny. High: 88Low: 61\n<BR /> Sun - Sunny. High: 88Low: 63\n<BR />\n<BR />\n<a href=\"http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-2295412/\">Full Forecast at Yahoo! Weather</a>\n<BR />\n<BR />\n(provided by <a href=\"http://www.weather.com\" >The Weather Channel</a>)\n<BR />\n]]>",
-            "guid": {
-                "isPermaLink": "false"
-            }
+  const initialWeatherData = {
+    "units": {
+      "distance": "mi",
+      "pressure": "in",
+      "speed": "mph",
+      "temperature": "F"
+    },
+    "lastBuildDate": "Wed, 21 Dec 2016 12:01 PM IST",
+    "ttl": "60",
+    "location": {
+      "city": "Pune",
+      "country": "India",
+      "region": " MH"
+    },
+    "wind": {
+      "chill": "73",
+      "direction": "68",
+      "speed": "4"
+    },
+    "atmosphere": {
+      "humidity": "42",
+      "pressure": "945.0",
+      "rising": "0",
+      "visibility": "16.1"
+    },
+    "astronomy": {
+      "sunrise": "7:3 am",
+      "sunset": "6:4 pm"
+    },
+    "image": {
+      "title": "Yahoo! Weather",
+      "width": "142",
+      "height": "18",
+      "link": "http://weather.yahoo.com",
+      "url": "http://l.yimg.com/a/i/brand/purplelogo//uh/us/news-wea.gif"
+    },
+    "item": {
+      "title": "Conditions for Pune, MH, IN at 10:30 AM IST",
+      "lat": "18.53611",
+      "long": "73.85218",
+      "link": "http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.y" +
+          "ahoo.com/country/state/city-2295412/",
+      "pubDate": "Wed, 21 Dec 2016 10:30 AM IST",
+      "condition": {
+        "code": "30",
+        "date": "Wed, 21 Dec 2016 10:30 AM IST",
+        "temp": "91",
+        "text": "Clear"
+      },
+      "forecast": [
+        {
+          "code": "30",
+          "date": "21 Dec 2016",
+          "day": "Wed",
+          "high": "85",
+          "low": "57",
+          "text": "Partly Cloudy"
+        }, {
+          "code": "30",
+          "date": "22 Dec 2016",
+          "day": "Thu",
+          "high": "86",
+          "low": "62",
+          "text": "Partly Cloudy"
+        }, {
+          "code": "30",
+          "date": "23 Dec 2016",
+          "day": "Fri",
+          "high": "87",
+          "low": "59",
+          "text": "Partly Cloudy"
+        }, {
+          "code": "32",
+          "date": "24 Dec 2016",
+          "day": "Sat",
+          "high": "88",
+          "low": "61",
+          "text": "Sunny"
+        }, {
+          "code": "32",
+          "date": "25 Dec 2016",
+          "day": "Sun",
+          "high": "88",
+          "low": "63",
+          "text": "Sunny"
+        }, {
+          "code": "32",
+          "date": "26 Dec 2016",
+          "day": "Mon",
+          "high": "87",
+          "low": "63",
+          "text": "Sunny"
         }
-    };
+      ],
+      "description": "<![CDATA[<img src=\"http://l.yimg.com/a/i/us/we/52/30.gif\"/>\n<BR />\n<b>Curren" +
+          "t Conditions:</b>\n<BR />Partly Cloudy\n<BR />\n<BR />\n<b>Forecast:</b>\n<BR />" +
+          " Wed - Partly Cloudy. High: 85Low: 57\n<BR /> Thu - Partly Cloudy. High: 86Low: " +
+          "62\n<BR /> Fri - Partly Cloudy. High: 87Low: 59\n<BR /> Sat - Sunny. High: 88Low" +
+          ": 61\n<BR /> Sun - Sunny. High: 88Low: 63\n<BR />\n<BR />\n<a href=\"http://us.r" +
+          "d.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/co" +
+          "untry/state/city-2295412/\">Full Forecast at Yahoo! Weather</a>\n<BR />\n<BR />" +
+          "\n(provided by <a href=\"http://www.weather.com\" >The Weather Channel</a>)\n<BR" +
+          " />\n]]>",
+      "guid": {
+        "isPermaLink": "false"
+      }
+    }
+  };
 
-  // Utils constructor
-  // function Util() { }
-
-  // publicly exposed methods
+  // Utils constructor function Util() { } publicly exposed methods
   return {
-    initialWeatherData: initialWeatherData,
-    getWindDirection: getWindDirection,
-    getConditionIcon: getConditionIcon,
-    farenheitToCelsius: farenheitToCelsius,
-    celsiusToFarenheit: celsiusToFarenheit,
-    pressureInchesToMillibar: pressureInchesToMillibar,
-    pressureMillibarToInches: pressureMillibarToInches
+    initialWeatherData,
+    getWindDirection,
+    getConditionIcon,
+    farenheitToCelsius,
+    celsiusToFarenheit,
+    pressureInchesToMillibar,
+    pressureMillibarToInches,
+    getAuthToken
   };
 
   // return Util;
@@ -270,6 +279,44 @@ window.Util = (function Utils() {
    */
   function pressureMillibarToInches(pressure) {
     return Math.round(0.0295301 * pressure, 2);
+  }
+
+  /**
+   * Generates OAuth token for Yahoo Weather API
+   */
+  function getAuthToken() {
+    const concat = '&';
+    const method = 'GET';
+    const oauth = {
+      'oauth_consumer_key': Constant.CONSUMER_KEY,
+      'oauth_nonce': Math
+        .random()
+        .toString(36)
+        .substring(2),
+      'oauth_signature_method': 'HMAC-SHA1',
+      'oauth_timestamp': parseInt(new Date().getTime() / 1000).toString(),
+      'oauth_version': '1.0'
+    };
+
+    // Note the sorting here is required
+    const merged_arr = Object
+      .keys(oauth)
+      .sort()
+      .map(function (k) {
+        return [k + '=' + encodeURIComponent(oauth[k])];
+      });
+
+    const signature_base_str = method + concat + encodeURIComponent(Constant.API_URL) + concat + encodeURIComponent(merged_arr.join(concat));
+
+    const composite_key = encodeURIComponent(Constant.CONSUMER_SECRET) + concat;
+    const hash = CryptoJS.HmacSHA1(signature_base_str, composite_key);
+    const signature = hash.toString(CryptoJS.enc.Base64);
+
+    oauth['oauth_signature'] = signature;
+    return 'OAuth ' + Object
+      .keys(oauth)
+      .map((k) => [k + '="' + oauth[k] + '"'])
+      .join(',');
   }
 
 })();
