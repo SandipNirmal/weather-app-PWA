@@ -55,12 +55,18 @@
       const url = `${app.yahooWeatherApi}?${params}&format=json`;
 
       let headers = new Headers();
-      headers.set('Authorization', Util.getAuthToken());
-      headers.set('X-Yahoo-App-Id', Constant.APP_ID);
-    
+      headers.set('Authorization', Util.getAuthToken({
+        lat: lat ? lat : app.lat,
+        lon: lon ? lon : app.lon
+      }));
+      // headers.set('X-Yahoo-App-Id', Constant.APP_ID);
+
       fetch(url, {headers})
       .then((res) => res.json())
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res)
+        updateWeatherData(res)
+      })
       .catch((e) => {console.log('error', e)})
     }
   }
@@ -74,30 +80,35 @@
 
     // Destruct weatherData object to get required values
     let {
-      location,
-      item: {
-        forecast,
-        condition: current
+      current_observation: {
+        // location,
+        // item: {
+        //   forecast,
+        //   condition: current
+        // },
+        astronomy,
+        atmosphere,
+        wind,
+        condition: current,
+        pubDate: buildDate
       },
-      astronomy,
-      atmosphere,
-      wind,
-      lastBuildDate: buildDate
+      location,
+      forecasts
     } = weatherData;
 
     // today's forecast
-    let forecastToday = forecast[0];
+    let forecastToday = forecasts[0];
 
     // update header and basic info
     document.querySelector('.city-info .place').innerText = `${location.city},${location.region}`;
-    document.querySelector('.city-info .time').innerText = `${buildDate}
-        (Last Updated)`;
+    document.querySelector('.city-info .time').innerText = `${Util.getFormattedDate(buildDate)}
+(Last Updated)`;
 
     document.querySelector('.city-info .locationErr').style.display = app.locationFound ? 'none' : 'block';
 
     document.querySelector('#currentWeather .w-cond .cond-code').src = `./../icons/${Util.getConditionIcon(current.code)}.png`;
     document.querySelector('#currentWeather .w-cond .cond').innerText = `${current.text}`;
-    document.querySelector('#currentWeather .cur-temp span').innerHTML = `${Util.farenheitToCelsius(current.temp)}&#xb0;`;
+    document.querySelector('#currentWeather .cur-temp span').innerHTML = `${Util.farenheitToCelsius(current.temperature)}&#xb0;`;
 
     document.querySelector('#temp-max').innerHTML = `<svg width="20" height="20" viewBox="0 0 48 48" data-icon="arrow-up" style="fill: rgb(255, 255, 255); stroke: rgb(255, 255, 255); stroke-width: 0; vertical-align: bottom;">
       <path d="M13.764 18.75c-.792.772-.808 2.037-.04 2.828.772.792 2.038.81 2.83.04l5.678-5.526v23.59h4v-23.59l5.68 5.525c.79.77 2.058.753 2.827-.04.377-.388.565-.89.565-1.394 0-.52-.202-1.042-.605-1.434L24.23 8.566 13.763 18.75z"></path>
@@ -108,7 +119,7 @@
                         </svg>${Util.farenheitToCelsius(forecastToday.low)}&#xb0;`;
 
     // update forecast
-    updateForecast(forecast);
+    updateForecast(forecasts);
 
     // update other info
     updateWeatherInfo(wind, atmosphere, astronomy, current);

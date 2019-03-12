@@ -125,7 +125,8 @@ window.Util = (function Utils() {
     celsiusToFarenheit,
     pressureInchesToMillibar,
     pressureMillibarToInches,
-    getAuthToken
+    getAuthToken,
+    getFormattedDate
   };
 
   // return Util;
@@ -284,7 +285,7 @@ window.Util = (function Utils() {
   /**
    * Generates OAuth token for Yahoo Weather API
    */
-  function getAuthToken() {
+  function getAuthToken(location) {
     const concat = '&';
     const method = 'GET';
     const oauth = {
@@ -298,12 +299,13 @@ window.Util = (function Utils() {
       'oauth_version': '1.0'
     };
 
+    const merged = Object.assign({}, {...location, 'format': 'json'}, oauth)
     // Note the sorting here is required
     const merged_arr = Object
-      .keys(oauth)
+      .keys(merged)
       .sort()
       .map(function (k) {
-        return [k + '=' + encodeURIComponent(oauth[k])];
+        return [k + '=' + encodeURIComponent(merged[k])];
       });
 
     const signature_base_str = method + concat + encodeURIComponent(Constant.API_URL) + concat + encodeURIComponent(merged_arr.join(concat));
@@ -317,6 +319,20 @@ window.Util = (function Utils() {
       .keys(oauth)
       .map((k) => [k + '="' + oauth[k] + '"'])
       .join(',');
+  }
+
+  /**
+   * Returns date in LocaleDateString and time
+   * 
+   * @param {number} timestamp - timestamp in second
+   * @returns {string} formatted date string
+   */
+  function getFormattedDate(timestamp) {
+    const pubDate = new Date(timestamp * 1000)
+
+    // return pubDate.toLocaleString()
+
+    return `${pubDate.toDateString()} ${pubDate.toLocaleTimeString()}`
   }
 
 })();
