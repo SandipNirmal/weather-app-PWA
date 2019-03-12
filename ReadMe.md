@@ -10,3 +10,8 @@ in mind.
 2. Caches API
 3. Flexbox
 4. Canvas
+
+
+#### Yahoo Weather API
+
+This application uses Yahoo Weather API. You can visit https://developer.yahoo.com/weather/ fot more details.
