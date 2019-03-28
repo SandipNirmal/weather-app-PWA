@@ -15,3 +15,13 @@ in mind.
 #### Yahoo Weather API
 
 This application uses Yahoo Weather API. You can visit https://developer.yahoo.com/weather/ fot more details.
+
+#### Running Application
+
+Sign up for **Yahoo Weather API**, and update your api_keys in ``constant.js``. 
+
+```
+npm i
+
+npm start
+```
