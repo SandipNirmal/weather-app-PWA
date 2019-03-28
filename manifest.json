@@ -1,6 +1,6 @@
 {
   "name": "Weather App",
-  "short-name": "Weather",
+  "short_name": "Weather",
   "background_color": "#6c00f6",
   "theme_color": "#6c00f6",
   "description": "A simple installable weather web app, built usign Yahoo Weather API.",
@@ -40,6 +40,12 @@
       "sizes": "192x192",
       "type": "image/png",
       "density": 4.0
+    },
+    {
+      "src": "../assets/app-icons/app_icon_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "density": 5.0
     }
   ],
   "start_url": "index.html",

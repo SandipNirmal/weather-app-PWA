@@ -149,6 +149,8 @@
 
       let cond_icon = document.createElement('img');
       cond_icon.src = `./../icons/${Util.getConditionIcon(forecastForDay.code)}.png`;
+      // Replace it with condition name
+      cond_icon.alt = "Weather Condition"
 
       let forecast_temp = document.createElement('div');
       forecast_temp.className = "forecast-temp";

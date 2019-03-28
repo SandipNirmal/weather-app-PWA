@@ -5,7 +5,7 @@
  */
 
 // App version
-const version = 'app-v0.0.6';
+const version = 'app-v0.0.7';
 
 /**
  * Service Worker install event
@@ -18,21 +18,21 @@ this.addEventListener('install', event => {
         caches.open(version)
         .then(cache => {
           return cache.addAll([
-              './index.html',
-              'http://localhost:5000',
-              './css/style.css',
-              './js/script.js',
-              './js/app.js',
-              './icons/11.png',
-              './icons/16.png',
-              './icons/20.png',
-              './icons/24.png',
-              './icons/26.png',
-              './icons/30.png',
-              './icons/32.png',
-              './icons/4.png',
-              './icons/turbine.png',
-              './assets/weather-app.png'
+            '/',
+            '/index.html',
+            '/index.html/#',
+            '/css/style.css',
+            '/js/script.js',
+            '/js/app.js',
+            '/icons/11.png',
+            '/icons/16.png',
+            '/icons/20.png',
+            '/icons/24.png',
+            '/icons/26.png',
+            '/icons/30.png',
+            '/icons/32.png',
+            '/icons/4.png',
+            '/icons/turbine.png'
           ]);
         })
     );
