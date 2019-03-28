@@ -20,8 +20,4 @@ This application uses Yahoo Weather API. You can visit https://developer.yahoo.c
 
 Sign up for **Yahoo Weather API**, and update your api_keys in ``constant.js``. 
 
-```
-npm i
-
-npm start
-```
+Serve application using any http server.
