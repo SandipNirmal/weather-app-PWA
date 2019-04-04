@@ -59,7 +59,6 @@
         lat: lat ? lat : app.lat,
         lon: lon ? lon : app.lon
       }));
-      // headers.set('X-Yahoo-App-Id', Constant.APP_ID);
 
       fetch(url, {headers})
       .then((res) => res.json())
